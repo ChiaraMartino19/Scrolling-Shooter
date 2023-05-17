@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scrolling Shooter.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MenuInicio.unity
+    guid: bf0587aed0bfd9f4fae584abd717ec81
+  - enabled: 1
+    path: Assets/Scenes/Winner.unity
+    guid: 9b5eaf838f747494290ad15fab92806c
+  - enabled: 1
+    path: Assets/Scenes/Dead.unity
+    guid: 5b15d093f6a6bdb49979c04d16347678
   m_configObjects: {}

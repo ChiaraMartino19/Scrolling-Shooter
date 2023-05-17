@@ -9,11 +9,13 @@ public class Health : MonoBehaviour
     private int currentHealth;
     public Slider barraHealth;
 
+
     private void Start()
     {
         currentHealth = maxHealth; 
         barraHealth.maxValue = maxHealth; 
         barraHealth.value = maxHealth; 
+        
     }
 
     public void TakeDamage(int damage)
