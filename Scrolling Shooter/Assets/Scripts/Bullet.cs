@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletSpeed;
-    public GameObject bulletPrefab;
-    public Transform player;
-    public Vector2 spawnOffset;
+    public float speed;
+    private Transform player;
+    private Vector2 target;
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        target = new Vector2 (player.position.x, player.position.y);
+    }
 
+   
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (transform.position.x == target.x && transform.position.y == target.y)
         {
-            Vector2 spawnPosition = (Vector2)player.position + spawnOffset;
-            GameObject newBullet = Instantiate(bulletPrefab, spawnPosition, player.rotation);
-            Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(bulletSpeed, 0f);
+            Destroyed();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+      if(other.CompareTag("Player"))
+        {
+            Destroyed ();
         }
     }
 
+    void Destroyed()
+    {
+        Destroy(gameObject);
+    }
 }
